@@ -1,0 +1,217 @@
+<mxfile host="65bd71144e">
+    <diagram name="JanuScope ERD" id="januscope-erd">
+        <mxGraphModel dx="426" dy="326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="2000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="users" value="users&#xa;user_id (PK)&#xa;role_id (FK)&#xa;gender (FK)&#xa;branch_id (FK)&#xa;first_name&#xa;last_name&#xa;email&#xa;username&#xa;password_hash&#xa;is_approved&#xa;approved_by (FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="80" width="200" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="roles" value="roles&#xa;role_id (PK)&#xa;role_name&#xa;description" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="50" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="genders" value="genders&#xa;gender (PK)&#xa;description" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="220" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="branches" value="branches&#xa;branch_id (PK)&#xa;name&#xa;code&#xa;country_code (FK)&#xa;location_id (FK)&#xa;is_active" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="80" width="180" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="countries" value="countries&#xa;country_code (PK)&#xa;name" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="80" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="locations" value="locations&#xa;location_id (PK)&#xa;name&#xa;parent_id (FK)&#xa;location_type" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="200" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="services" value="services&#xa;service_id (PK)&#xa;name&#xa;url&#xa;check_interval_seconds&#xa;timeout_ms&#xa;current_status&#xa;last_checked_at&#xa;is_active&#xa;created_by (FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="500" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="uptime_checks" value="uptime_checks&#xa;check_id (PK)&#xa;service_id (FK)&#xa;status&#xa;response_time_ms&#xa;http_code&#xa;error_message&#xa;checked_at" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="500" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="incidents" value="incidents&#xa;incident_id (PK)&#xa;service_id (FK)&#xa;started_at&#xa;recovered_at&#xa;duration_seconds&#xa;error_message&#xa;is_resolved" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="500" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="ssl_checks" value="ssl_checks&#xa;ssl_check_id (PK)&#xa;service_id (FK)&#xa;domain&#xa;issuer&#xa;valid_from&#xa;valid_to&#xa;days_remaining&#xa;is_valid" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="780" width="200" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="service_statistics" value="service_statistics&#xa;stat_id (PK)&#xa;service_id (FK)&#xa;date&#xa;total_checks&#xa;uptime_percentage&#xa;avg_response_time_ms" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="780" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="notifications" value="notifications&#xa;notification_id (PK)&#xa;service_id (FK)&#xa;incident_id (FK)&#xa;ssl_check_id (FK)&#xa;event_type (FK)&#xa;channel (FK)&#xa;recipient&#xa;delivery_status" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="500" width="200" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="contact_groups" value="contact_groups&#xa;group_id (PK)&#xa;name&#xa;description&#xa;is_active&#xa;created_by (FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="780" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="contact_members" value="contact_members&#xa;member_id (PK)&#xa;group_id (FK)&#xa;name&#xa;email&#xa;telegram_handle&#xa;phone_number" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="780" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="service_contact_groups" value="service_contact_groups&#xa;service_id (PK,FK)&#xa;group_id (PK,FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="600" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="notification_channels" value="notification_channels&#xa;channel (PK)&#xa;description&#xa;is_enabled" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="500" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="event_types" value="event_types&#xa;event_type (PK)&#xa;description" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1720" y="500" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="notification_templates" value="notification_templates&#xa;template_id (PK)&#xa;name&#xa;event_type (FK)&#xa;channel (FK)&#xa;subject_template&#xa;body_template" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="640" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="notification_cooldowns" value="notification_cooldowns&#xa;cooldown_id (PK)&#xa;service_id (FK)&#xa;group_id (FK)&#xa;event_type (FK)&#xa;last_notified_at&#xa;cooldown_until" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="780" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="reports" value="reports&#xa;report_id (PK)&#xa;name&#xa;report_type (FK)&#xa;from_date&#xa;to_date&#xa;format&#xa;generated_by (FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="1040" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="report_types" value="report_types&#xa;report_type (PK)&#xa;description" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="1040" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="scheduled_reports" value="scheduled_reports&#xa;schedule_id (PK)&#xa;name&#xa;report_type (FK)&#xa;cron_expression&#xa;format&#xa;next_run_at&#xa;created_by (FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="1260" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="report_recipients" value="report_recipients&#xa;schedule_id (PK,FK)&#xa;group_id (PK,FK)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="1460" y="1260" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="audit_logs" value="audit_logs&#xa;audit_id (PK)&#xa;user_id (FK)&#xa;action&#xa;table_name&#xa;row_id&#xa;old_data&#xa;new_data" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="1040" width="180" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="user_audit_log" value="user_audit_log&#xa;audit_id (PK)&#xa;user_id (FK)&#xa;action_type&#xa;performed_by (FK)&#xa;old_values&#xa;new_values" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="1040" width="180" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="system_logs" value="system_logs&#xa;log_id (PK)&#xa;level&#xa;message&#xa;trace&#xa;source&#xa;metadata" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="1040" width="160" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="refresh_tokens" value="refresh_tokens&#xa;token_id (PK)&#xa;user_id (FK)&#xa;token_hash&#xa;expires_at&#xa;is_revoked" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+                    <mxGeometry x="740" y="1040" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="settings" value="settings&#xa;key (PK)&#xa;value&#xa;description&#xa;data_type&#xa;is_sensitive" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="1040" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="job_queue" value="job_queue&#xa;job_id (PK)&#xa;job_type&#xa;payload&#xa;priority&#xa;status&#xa;attempts&#xa;scheduled_at" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fad7ac;strokeColor=#b46504;" parent="1" vertex="1">
+                    <mxGeometry x="740" y="1220" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge1" parent="1" source="roles" target="users" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge2" parent="1" source="genders" target="users" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge3" parent="1" source="branches" target="users" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge4" parent="1" source="countries" target="branches" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge5" parent="1" source="locations" target="branches" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge6" parent="1" source="services" target="uptime_checks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge7" parent="1" source="services" target="incidents" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge8" parent="1" source="services" target="ssl_checks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge9" parent="1" source="services" target="service_statistics" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge10" parent="1" source="users" target="services" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge11" parent="1" source="services" target="notifications" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge12" parent="1" source="incidents" target="notifications" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge13" parent="1" source="ssl_checks" target="notifications" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge14" parent="1" source="event_types" target="notifications" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge15" parent="1" source="notification_channels" target="notifications" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge16" parent="1" source="contact_groups" target="contact_members" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge17" parent="1" source="services" target="service_contact_groups" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge18" parent="1" source="contact_groups" target="service_contact_groups" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge19" parent="1" source="users" target="contact_groups" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge20" parent="1" source="event_types" target="notification_templates" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge21" parent="1" source="notification_channels" target="notification_templates" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge22" parent="1" source="services" target="notification_cooldowns" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge23" parent="1" source="contact_groups" target="notification_cooldowns" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge24" parent="1" source="event_types" target="notification_cooldowns" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge25" parent="1" source="report_types" target="reports" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge26" parent="1" source="users" target="reports" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge27" parent="1" source="report_types" target="scheduled_reports" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge28" parent="1" source="users" target="scheduled_reports" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge29" parent="1" source="scheduled_reports" target="report_recipients" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge30" parent="1" source="contact_groups" target="report_recipients" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge31" parent="1" source="users" target="audit_logs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge32" parent="1" source="users" target="user_audit_log" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge33" parent="1" source="users" target="refresh_tokens" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="Legend" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry x="2000" y="80" width="300" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend1" value="User Management &amp; Auth" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend" vertex="1">
+                    <mxGeometry y="26" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend2" value="Service Monitoring" style="text;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend" vertex="1">
+                    <mxGeometry y="52" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend3" value="Notifications &amp; Alerts" style="text;strokeColor=#b85450;fillColor=#f8cecc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend" vertex="1">
+                    <mxGeometry y="78" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend4" value="Reports &amp; Scheduling" style="text;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend" vertex="1">
+                    <mxGeometry y="104" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend5" value="System &amp; Audit" style="text;strokeColor=#b46504;fillColor=#fad7ac;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend" vertex="1">
+                    <mxGeometry y="130" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend6" value="Reference Tables" style="text;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="legend" vertex="1">
+                    <mxGeometry y="156" width="300" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

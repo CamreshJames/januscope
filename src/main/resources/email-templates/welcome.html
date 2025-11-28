@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Januscope</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 16px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 800;
+            color: #ff6b35;
+        }
+        .email-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .email-body {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .credentials-box {
+            background: #f8f9fa;
+            border: 2px solid #ff6b35;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 30px 0;
+        }
+        .credentials-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .credential-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .credential-row:last-child {
+            border-bottom: none;
+        }
+        .credential-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        .credential-value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .security-notice {
+            background: #fff5f0;
+            border-left: 4px solid #ff6b35;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .security-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #d84315;
+            margin-bottom: 12px;
+        }
+        .security-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #d84315;
+        }
+        .security-list li {
+            margin-bottom: 8px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 20px 0;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #ff5722;
+        }
+        .email-footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer-text {
+            font-size: 14px;
+            color: #999;
+            margin: 5px 0;
+        }
+        .footer-link {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            .email-body {
+                padding: 30px 20px;
+            }
+            .credential-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <div class="logo">J</div>
+            <h1 class="email-title">Welcome to Januscope!</h1>
+        </div>
+
+        <!-- Body -->
+        <div class="email-body">
+            <p class="greeting">Dear {{firstName}} {{lastName}},</p>
+            
+            <p class="message">
+                Your account has been approved! Welcome to Januscope Monitoring System. 
+                You now have access to monitor your services, track SSL certificates, and receive instant alerts.
+            </p>
+
+            <!-- Credentials Box -->
+            <div class="credentials-box">
+                <div class="credentials-title">Your Login Credentials</div>
+                <div class="credential-row">
+                    <span class="credential-label">Username:</span>
+                    <span class="credential-value">{{username}}</span>
+                </div>
+                <div class="credential-row">
+                    <span class="credential-label">Password:</span>
+                    <span class="credential-value">{{password}}</span>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+                <div class="security-title">
+                    <span>IMPORTANT SECURITY NOTICE</span>
+                </div>
+                <ul class="security-list">
+                    <li>Please change your password immediately after first login</li>
+                    <li>Do not share your credentials with anyone</li>
+                    <li>Keep your password secure and confidential</li>
+                    <li>Enable two-factor authentication if available</li>
+                </ul>
+            </div>
+
+            <!-- CTA Button -->
+            <div style="text-align: center;">
+                <a href="{{loginUrl}}" class="cta-button">Sign In Now</a>
+            </div>
+
+            <p class="message">
+                If you have any questions or need assistance, please contact your system administrator.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <p class="footer-text">
+                <strong>Januscope Monitoring System</strong>
+            </p>
+            <p class="footer-text">
+                This is an automated message. Please do not reply to this email.
+            </p>
+            <p class="footer-text">
+                © {{year}} Sky World Limited. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

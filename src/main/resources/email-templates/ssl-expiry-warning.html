@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSL Certificate Expiry Warning</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .email-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .email-body {
+            padding: 40px 30px;
+        }
+        .warning-badge {
+            display: inline-block;
+            background: #fff3e0;
+            color: #e65100;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .expiry-countdown {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .countdown-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #e65100;
+            margin: 0;
+        }
+        .countdown-label {
+            font-size: 18px;
+            color: #e65100;
+            margin: 10px 0 0 0;
+        }
+        .cert-info {
+            background: #f8f9fa;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #666;
+        }
+        .info-value {
+            color: #333;
+            font-family: 'Courier New', monospace;
+            text-align: right;
+        }
+        .action-steps {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .action-steps-title {
+            font-weight: 700;
+            color: #1565c0;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .action-steps ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #1976d2;
+        }
+        .action-steps li {
+            margin-bottom: 8px;
+        }
+        .action-button {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .email-footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer-text {
+            font-size: 14px;
+            color: #999;
+            margin: 5px 0;
+        }
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            .email-body {
+                padding: 30px 20px;
+            }
+            .info-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .info-value {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <div class="icon">⚠️</div>
+            <h1 class="email-title">SSL Certificate Expiring Soon</h1>
+        </div>
+
+        <div class="email-body">
+            <span class="warning-badge">Action Required</span>
+            
+            <p style="font-size: 18px; color: #333; margin: 20px 0;">
+                Your SSL certificate for <strong>{{domain}}</strong> is expiring soon. 
+                Please renew it to avoid service disruption.
+            </p>
+
+            <div class="expiry-countdown">
+                <p class="countdown-number">{{daysRemaining}}</p>
+                <p class="countdown-label">Days Until Expiry</p>
+            </div>
+
+            <div class="cert-info">
+                <div class="info-row">
+                    <span class="info-label">Domain:</span>
+                    <span class="info-value">{{domain}}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Issuer:</span>
+                    <span class="info-value">{{issuer}}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Valid From:</span>
+                    <span class="info-value">{{validFrom}}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Expires On:</span>
+                    <span class="info-value" style="color: #e65100; font-weight: 700;">{{expiresOn}}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Serial Number:</span>
+                    <span class="info-value">{{serialNumber}}</span>
+                </div>
+            </div>
+
+            <div class="action-steps">
+                <div class="action-steps-title">📋 Recommended Actions</div>
+                <ol>
+                    <li>Contact your SSL certificate provider to renew</li>
+                    <li>Generate a new Certificate Signing Request (CSR) if needed</li>
+                    <li>Install the new certificate before expiry date</li>
+                    <li>Test the new certificate after installation</li>
+                    <li>Update monitoring to reflect the new certificate</li>
+                </ol>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="{{dashboardUrl}}" class="action-button">View Certificate Details</a>
+            </div>
+
+            <p style="font-size: 14px; color: #999; margin-top: 30px; padding: 16px; background: #fff3cd; border-radius: 4px; color: #856404;">
+                <strong>⏰ Important:</strong> If the certificate expires, users will see security warnings 
+                and may not be able to access your service. Please take action before {{expiresOn}}.
+            </p>
+        </div>
+
+        <div class="email-footer">
+            <p class="footer-text">
+                <strong>Januscope Monitoring System</strong>
+            </p>
+            <p class="footer-text">
+                SSL Certificate Monitoring • Automated Alert
+            </p>
+            <p class="footer-text">
+                © {{year}} Sky World Limited. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
