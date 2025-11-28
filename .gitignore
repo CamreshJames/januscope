@@ -13,7 +13,6 @@ buildNumber.properties
 .m2/
 # Java
 *.class
-*.jar
 *.war
 *.ear
 *.log

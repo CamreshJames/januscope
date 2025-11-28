@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<januscope-config version="1.0">
+            
+    
+    
+    <!-- Database Configuration -->
+            
+    
+    <database>
+                        
+        
+        <!-- Database URL - Can be encrypted for extra security -->
+                
+        <url status="encrypted">5eBnM0jXyAZG0GkUIpCUk7hdrqbGYE9VJcSv8bbARzKmkAcnhJ/k0ShJhWHSOCZ10/Oz5v4yFvfUnyLxpEdk4B20GKujNA==</url>
+                
+        <!-- <url status="encrypted">BASE64_ENCRYPTED_VALUE_HERE</url> -->
+                        
+        
+        <!-- Database Username - Can be encrypted for extra security -->
+                
+        <username status="encrypted">DqJ+Fb5b0wqvj0pjiVDt2pciXx0ZNdSYFyJ0JJP/ZKC0cKRdjLVqcNU=</username>
+                
+        <!-- <username status="encrypted">BASE64_ENCRYPTED_VALUE_HERE</username> -->
+                        
+        
+        <!-- Database Password - MUST be encrypted in production -->
+                        
+        
+        <password status="encrypted">3qRa5Xq86rKNSw8xcpyuQjgG1ntBve84HrgOyC65JVrmfl3PSDqQ6g==</password>
+                        
+        
+        <!-- Encrypted password (RECOMMENDED for production) -->
+                        
+        
+        <!-- Use: java -cp target/Main-1.0.0-fat.jar ke.skyworld.januscope.utils.ConfigEncryptionTool -->
+                        
+        
+        <!-- <password status="encrypted">BASE64_ENCRYPTED_VALUE_HERE</password> -->
+                        
+        
+        <pool>
+                                    
+            
+            <maxPoolSize>20</maxPoolSize>
+                                    
+            
+            <minIdle>5</minIdle>
+                                    
+            
+            <connectionTimeout>30000</connectionTimeout>
+                                
+        
+        </pool>
+                    
+    
+    </database>
+            
+    
+    
+    <!-- Security Configuration -->
+            
+    
+    <security>
+                        
+        
+        <jwt>
+                                    
+            
+            <!-- JWT Secret - MUST be changed in production -->
+                                    
+            
+            <!-- Can be encrypted for extra security -->
+                                    
+            
+            <secret status="encrypted">mX6pByaay665uY6e8mvyI18DMjH5099RQ2fZFdIJH3MZNVD9Qkoe4kAzANO6Qagid38RvXED7pn9gnU6h76Xi22atgv1Tx9MaVkTnw2u5GEhTV0Y5jcDNFIKMQ==</secret>
+                                    
+            
+            <!-- <secret status="encrypted">BASE64_ENCRYPTED_VALUE_HERE</secret> -->
+                                    
+            
+            <accessTokenExpiry>3600</accessTokenExpiry>
+                        
+            <!-- 1 hour in seconds -->
+                                    
+            
+            <refreshTokenExpiry>604800</refreshTokenExpiry>
+                        
+            <!-- 7 days in seconds -->
+                                
+        
+        </jwt>
+                        
+        
+        <password status="encrypted">nPtD27ZJhKz/Rhai4FKHyaGM9esHfazBMRo2OH4W/kM1H+AkZsCXWkz1/nzARd1cuCcd2t+jQfs7Qs6BzmVvbr4ZbL52fBQIYXooCG5CCuiiTg==</password>
+                    
+    
+    </security>
+            
+    
+    
+    <!-- Monitoring Configuration -->
+            
+    
+    <monitoring>
+                        
+        
+        <defaults>
+                                    
+            
+            <checkInterval>300</checkInterval>
+                        
+            <!-- 5 minutes in seconds -->
+                                    
+            
+            <timeout>10000</timeout>
+                        
+            <!-- 10 seconds in milliseconds -->
+                                    
+            
+            <maxRetries>3</maxRetries>
+                                    
+            
+            <retryDelay>5000</retryDelay>
+                        
+            <!-- 5 seconds in milliseconds -->
+                                
+        
+        </defaults>
+                        
+        
+        <ssl>
+                                    
+            
+            <checkInterval>86400</checkInterval>
+                        
+            <!-- 24 hours in seconds -->
+                                    
+            
+            <expiryThresholds>30,14,7,3</expiryThresholds>
+                        
+            <!-- days before expiry -->
+                                
+        
+        </ssl>
+                        
+        
+        <threadPool>
+                                    
+            
+            <coreSize>10</coreSize>
+                                    
+            
+            <maxSize>50</maxSize>
+                                
+        
+        </threadPool>
+                    
+    
+    </monitoring>
+            
+    
+    
+    <!-- Notification Configuration -->
+            
+    
+    <notification>
+                        
+        
+        <channels>
+                                    
+            
+            <!-- Email Channel -->
+                                    
+            
+            <email enabled="true">
+                                                
+                
+                <smtp>
+                                                            
+                    
+                    <host>smtp.gmail.com</host>
+                                                            
+                    
+                    <port>587</port>
+                                                            
+                    
+                    <username status="encrypted">DKSv9MJxlQM3/NiFse3N3M8lyiFr4wf4tk5/IOWIXlqmMDdUfVXVQZ1ltkMS+RQmLao=</username>
+                                                            
+                    
+                    <!-- Email password - RECOMMENDED to encrypt in production -->
+                                                            
+                    
+                    <password status="encrypted">LQXCQhP8zhidGtGJHImVB9Tdsie3ICJSmMqK/UOeTMW9lr5beHQ26wQkrXE=</password>
+                                                            
+                    
+                    <!-- <password status="encrypted">BASE64_ENCRYPTED_VALUE_HERE</password> -->
+                                                            
+                    
+                    <tls>true</tls>
+                                                            
+                    
+                    <from>noreply@januscope.com</from>
+                                                        
+                
+                </smtp>
+                                            
+            
+            </email>
+                                    
+            
+            
+            <!-- Telegram Channel -->
+                                    
+            
+            <telegram enabled="false">
+                                                
+                
+                <!-- Telegram bot token - RECOMMENDED to encrypt in production -->
+                                                
+                
+                <botToken status="encrypted">Soub661Nej/QTs+JUJeYAohWzMslq7yaHpKCT9iFVoU3iyIz9P5nLyXMyQuaiDAmgGG3</botToken>
+                                                
+                
+                <!-- <botToken status="encrypted">BASE64_ENCRYPTED_VALUE_HERE</botToken> -->
+                                                
+                
+                <chatId>your-chat-id</chatId>
+                                            
+            
+            </telegram>
+                                    
+            
+            
+            <!-- Console Channel (for testing) -->
+                                    
+            
+            <console enabled="true"/>
+                                
+        
+        </channels>
+                        
+        
+        
+        <cooldown>
+                                    
+            
+            <defaultPeriod>300</defaultPeriod>
+                        
+            <!-- 5 minutes in seconds -->
+                                    
+            
+            <perEventType>
+                                                
+                
+                <SERVICE_DOWN>600</SERVICE_DOWN>
+                                
+                <!-- 10 minutes -->
+                                                
+                
+                <SSL_EXPIRY_30>86400</SSL_EXPIRY_30>
+                                
+                <!-- 24 hours -->
+                                            
+            
+            </perEventType>
+                                
+        
+        </cooldown>
+                    
+    
+    </notification>
+            
+    
+    
+    <!-- Job Scheduling Configuration -->
+            
+    
+    <jobs>
+                        
+        
+        <scheduler>
+                                    
+            
+            <threadPoolSize>5</threadPoolSize>
+                                
+        
+        </scheduler>
+                        
+        
+        
+        <!-- Uptime Monitoring Job -->
+                        
+        
+        <job enabled="true" name="uptime-checker">
+                                    
+            
+            <schedule>*/5 * * * *</schedule>
+                        
+            <!-- Every 5 minutes -->
+                                    
+            
+            <description>Checks uptime of all monitored services</description>
+                                
+        
+        </job>
+                        
+        
+        
+        <!-- SSL Certificate Check Job -->
+                        
+        
+        <job enabled="true" name="ssl-checker">
+                                    
+            
+            <schedule>0 */6 * * *</schedule>
+                        
+            <!-- Every 6 hours -->
+                                    
+            
+            <description>Checks SSL certificates for expiry</description>
+                                
+        
+        </job>
+                        
+        
+        
+        <!-- Cleanup Job -->
+                        
+        
+        <job enabled="true" name="cleanup">
+                                    
+            
+            <schedule>0 2 * * *</schedule>
+                        
+            <!-- Daily at 2 AM -->
+                                    
+            
+            <description>Cleans up old data</description>
+                                
+        
+        </job>
+                    
+    
+    </jobs>
+            
+    
+    
+    <!-- Services to Monitor -->
+            
+    
+    <services>
+                        
+        
+        <service>
+                                    
+            
+            <name>Google</name>
+                                    
+            
+            <url status="encrypted">QwjhoI4GYEMMTNSwHE4drDJT6ki4j4g7h93sgyOkOX59f+IYKXzNoHFe/Pao7UZcfgU=</url>
+                                    
+            
+            <checkInterval>300</checkInterval>
+                        
+            <!-- 5 minutes -->
+                                    
+            
+            <timeout>10000</timeout>
+                        
+            <!-- 10 seconds -->
+                                    
+            
+            <maxRetries>3</maxRetries>
+                                    
+            
+            <enabled>true</enabled>
+                                
+        
+        </service>
+                        
+        
+        
+        <service>
+                                    
+            
+            <name>GitHub</name>
+                                    
+            
+            <url status="encrypted">CQhA+xNRyHs5t1fVJjTtMk7/k+B82xNJ6jipMfXtjX9q4V4P+8v0ySKMG8tiDA==</url>
+                                    
+            
+            <checkInterval>300</checkInterval>
+                                    
+            
+            <timeout>10000</timeout>
+                                    
+            
+            <maxRetries>3</maxRetries>
+                                    
+            
+            <enabled>true</enabled>
+                                
+        
+        </service>
+                        
+        
+        
+        <!-- Add your services here -->
+                        
+        
+        <!--
+        <service>
+            <name>Your Service Name</name>
+            <url>https://your-service.com</url>
+            <checkInterval>300</checkInterval>
+            <timeout>10000</timeout>
+            <maxRetries>3</maxRetries>
+            <enabled>true</enabled>
+        </service>
+        -->
+                    
+    
+    </services>
+            
+    
+    
+    <!-- Contact Groups -->
+            
+    
+    <contactGroups>
+                        
+        
+        <group>
+                                    
+            
+            <name>DevOps Team</name>
+                                    
+            
+            <description>Primary technical contacts</description>
+                                    
+            
+            <members>
+                                                
+                
+                <member>
+                                                            
+                    
+                    <name>Admin User</name>
+                                                            
+                    
+                    <email>admin@example.com</email>
+                                                            
+                    
+                    <telegram>@admin</telegram>
+                                                        
+                
+                </member>
+                                            
+            
+            </members>
+                                
+        
+        </group>
+                        
+        
+        
+        <group>
+                                    
+            
+            <name>Management</name>
+                                    
+            
+            <description>Executive alerts</description>
+                                    
+            
+            <members>
+                                                
+                
+                <member>
+                                                            
+                    
+                    <name>Manager</name>
+                                                            
+                    
+                    <email>manager@example.com</email>
+                                                        
+                
+                </member>
+                                            
+            
+            </members>
+                                
+        
+        </group>
+                    
+    
+    </contactGroups>
+            
+    
+    
+    <!-- Server Configuration -->
+        
+    <server>
+                
+        <host>0.0.0.0</host>
+                
+        <port>9876</port>
+                
+        <!-- API Versioning -->
+                
+        <api>
+                        
+            <version>v1</version>
+                        
+            <basePath>/api</basePath>
+                        
+            <!-- Full API path will be: /api/v1/* -->
+                    
+        </api>
+                
+        <!-- Authentication -->
+                
+        <auth>
+                        
+            <enabled>true</enabled>
+                        
+            <!-- Public endpoints that don't require authentication -->
+                        
+            <publicEndpoints>
+                                
+                <endpoint>/</endpoint>
+                                
+                <endpoint>/api/health</endpoint>
+                                
+                <endpoint>/api/v1/health</endpoint>
+                                
+                <endpoint>/api/v1/auth/login</endpoint>
+                                
+                <endpoint>/api/v1/auth/register</endpoint>
+                                
+                <endpoint>/api/v1/auth/refresh</endpoint>
+                                
+                <endpoint>/api/v1/auth/forgot-password</endpoint>
+                                
+                <endpoint>/api/v1/auth/reset-password</endpoint>
+                            
+            </publicEndpoints>
+                    
+        </auth>
+            
+    </server>
+
+    <!-- Encryption Configuration -->
+    <encryption>
+        <!-- Master password for config encryption -->
+        <!-- Priority: 1. Environment Variable, 2. This config, 3. Default -->
+        <!-- Set enabled="false" to use environment variable only (RECOMMENDED) -->
+        <masterPassword enabled="false" status="plaintext"></masterPassword>
+        <!-- <masterPassword enabled="true" status="plaintext">your-master-password-here</masterPassword> -->
+        <!-- WARNING: Storing master password in config is less secure than environment variable -->
+        
+        <!-- API Request/Response Encryption (AES-256-GCM) -->
+        <!-- For encrypting API communications between frontend and backend -->
+        <apiEncryption>
+            <!-- Enable/disable API encryption -->
+            <enabled>false</enabled>
+            
+            <!-- Encryption key (Base64-encoded AES-256 key) -->
+            <!-- Priority: 1. Environment Variable (JANUSCOPE_ENCRYPTION_KEY), 2. This config -->
+            <!-- Generate with: openssl rand -base64 32 -->
+            <!-- IMPORTANT: Use same key on frontend and backend -->
+            <key status="plaintext"></key>
+            <!-- <key status="plaintext">your-base64-encryption-key-here</key> -->
+            
+            <!-- Encryption mode: whitelist, blacklist, or all -->
+            <mode>whitelist</mode>
+            
+            <!-- Endpoints to encrypt (when mode=whitelist) -->
+            <whitelist>
+                <endpoint>/api/v1/auth/login</endpoint>
+                <endpoint>/api/v1/auth/register</endpoint>
+                <endpoint>/api/v1/auth/change-password</endpoint>
+                <endpoint>/api/v1/users/profile</endpoint>
+            </whitelist>
+            
+            <!-- Endpoints to exclude (when mode=blacklist or all) -->
+            <blacklist>
+                <endpoint>/api/health</endpoint>
+                <endpoint>/api/v1/health</endpoint>
+                <endpoint>/api/v1/metrics</endpoint>
+            </blacklist>
+        </apiEncryption>
+    </encryption>
+    
+    <!-- Email Template Configuration -->
+    <emailTemplates>
+        <!-- Template caching for performance -->
+        <cacheEnabled>true</cacheEnabled>
+        
+        <!-- Template directory (relative to resources) -->
+        <templatePath>/email-templates/</templatePath>
+        
+        <!-- Default sender information (overrides SMTP from) -->
+        <defaultSender>
+            <name>Januscope Monitoring System</name>
+            <email>noreply@januscope.com</email>
+        </defaultSender>
+        
+        <!-- Available templates -->
+        <templates>
+            <template name="welcome" file="welcome.html" subject="Welcome to Januscope"/>
+            <template name="registration-pending" file="registration-pending.html" subject="Registration Received"/>
+            <template name="alert-notification" file="alert-notification.html" subject="Service Alert"/>
+            <template name="ssl-expiry-warning" file="ssl-expiry-warning.html" subject="SSL Certificate Expiring Soon"/>
+            <template name="password-reset" file="password-reset.html" subject="Password Reset Request"/>
+        </templates>
+    </emailTemplates>
+
+</januscope-config>
