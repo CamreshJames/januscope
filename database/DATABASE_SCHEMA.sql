@@ -964,13 +964,94 @@ CREATE INDEX idx_notif_pending             ON notifications(notification_id, cre
 -----------------------------------------------------------------
 -- 14. PERMISSIONS (execute as super-user)
 -----------------------------------------------------------------
+
+-- Create application roles
 -- CREATE ROLE januscope_app LOGIN PASSWORD 'STRONG_PASSWORD';
 -- CREATE ROLE januscope_readonly LOGIN PASSWORD 'STRONG_PASSWORD';
+
+-- Database connection
 -- GRANT CONNECT ON DATABASE januscope TO januscope_app, januscope_readonly;
 -- GRANT USAGE ON SCHEMA public TO januscope_app, januscope_readonly;
--- GRANT ALL ON ALL TABLES IN SCHEMA public TO januscope_app;
--- GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO januscope_app;
+
+-- Application role (januscope_app) - Full CRUD access
+-- GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO januscope_app;
+-- GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO januscope_app;
+-- GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO januscope_app;
+
+-- Views access for application
+-- GRANT SELECT ON v_active_services TO januscope_app;
+-- GRANT SELECT ON v_service_uptime_24h TO januscope_app;
+-- GRANT SELECT ON v_ssl_expiring_soon TO januscope_app;
+-- GRANT SELECT ON v_recent_incidents TO januscope_app;
+-- GRANT SELECT ON v_dashboard_summary TO januscope_app;
+-- GRANT SELECT ON pending_user_approvals TO januscope_app;
+
+-- Read-only role (januscope_readonly) - SELECT only
 -- GRANT SELECT ON ALL TABLES IN SCHEMA public TO januscope_readonly;
+-- GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO januscope_readonly;
+-- GRANT SELECT ON v_active_services TO januscope_readonly;
+-- GRANT SELECT ON v_service_uptime_24h TO januscope_readonly;
+-- GRANT SELECT ON v_ssl_expiring_soon TO januscope_readonly;
+-- GRANT SELECT ON v_recent_incidents TO januscope_readonly;
+-- GRANT SELECT ON v_dashboard_summary TO januscope_readonly;
+-- GRANT SELECT ON pending_user_approvals TO januscope_readonly;
+
+-- Default privileges for future objects
+-- ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO januscope_app;
+-- ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO januscope_app;
+-- ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO januscope_app;
+-- ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO januscope_readonly;
+
+-- Specific function execution permissions
+-- GRANT EXECUTE ON FUNCTION cleanup_old_uptime_checks(INTEGER) TO januscope_app;
+-- GRANT EXECUTE ON FUNCTION cleanup_old_notifications(INTEGER) TO januscope_app;
+-- GRANT EXECUTE ON FUNCTION cleanup_expired_refresh_tokens() TO januscope_app;
+
+-- Revoke public schema access (security hardening)
+-- REVOKE ALL ON SCHEMA public FROM PUBLIC;
+-- REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+
+-----------------------------------------------------------------
+-- 15. QUICK SETUP SCRIPT (for development)
+-----------------------------------------------------------------
+
+-- Uncomment and run this block to quickly set up permissions:
+/*
+-- Create roles
+CREATE ROLE januscope_app LOGIN PASSWORD 'januscope_dev_password_2024';
+CREATE ROLE januscope_readonly LOGIN PASSWORD 'januscope_readonly_2024';
+
+-- Grant database access
+GRANT CONNECT ON DATABASE januscope TO januscope_app, januscope_readonly;
+GRANT USAGE ON SCHEMA public TO januscope_app, januscope_readonly;
+
+-- Application role permissions
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO januscope_app;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO januscope_app;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO januscope_app;
+
+-- Views
+GRANT SELECT ON v_active_services, v_service_uptime_24h, v_ssl_expiring_soon, 
+             v_recent_incidents, v_dashboard_summary, pending_user_approvals 
+TO januscope_app;
+
+-- Read-only role permissions
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO januscope_readonly;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO januscope_readonly;
+GRANT SELECT ON v_active_services, v_service_uptime_24h, v_ssl_expiring_soon, 
+             v_recent_incidents, v_dashboard_summary, pending_user_approvals 
+TO januscope_readonly;
+
+-- Default privileges for future objects
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO januscope_app;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO januscope_app;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO januscope_app;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO januscope_readonly;
+
+-- Security hardening
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+*/
 
 -----------------------------------------------------------------
 -- END OF SCHEMA
