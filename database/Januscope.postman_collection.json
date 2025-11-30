@@ -1,0 +1,539 @@
+{
+	"info": {
+		"_postman_id": "43f3cd93-02db-46ae-88e6-4dd0470dedab",
+		"name": "Januscope",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44244474",
+		"_collection_link": "https://james-1660084.postman.co/workspace/James's-Workspace~2fa0326f-e9b0-4b07-87c3-956d79ba8c8d/collection/44244474-43f3cd93-02db-46ae-88e6-4dd0470dedab?action=share&source=collection_link&creator=44244474"
+	},
+	"item": [
+		{
+			"name": "home",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}",
+					"host": [
+						"{{host}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "home",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}",
+							"host": [
+								"{{host}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14782"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Nov 2025 05:16:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"application\": \"Januscope - Uptime & SSL Monitoring System\",\n        \"version\": \"1.0.0\",\n        \"apiVersion\": \"v1\",\n        \"company\": \"Sky World Limited\",\n        \"baseUrl\": \"http://127.0.0.1:9876\",\n        \"documentation\": \"http://127.0.0.1:9876/\",\n        \"endpoints\": {\n            \"System\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/health\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/health\",\n                    \"description\": \"Health check endpoint\",\n                    \"requiresAuth\": false\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/health\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/health\",\n                    \"description\": \"Health check (versioned)\",\n                    \"requiresAuth\": false\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/status\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/status\",\n                    \"description\": \"System status and uptime\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/engines\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/engines\",\n                    \"description\": \"Engine status and health\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/roles\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/roles\",\n                    \"description\": \"List all roles\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/roles\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/roles\",\n                    \"description\": \"Create new role\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/roles/{roleId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/roles/{roleId}\",\n                    \"description\": \"Get role by ID\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/system/roles\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/roles\",\n                    \"description\": \"Update role\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/system/roles/{roleId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/roles/{roleId}\",\n                    \"description\": \"Delete role\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/countries\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/countries\",\n                    \"description\": \"List all countries\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/countries\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/countries\",\n                    \"description\": \"Create new country\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/countries/{countryCode}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/countries/{countryCode}\",\n                    \"description\": \"Get country by code\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/system/countries\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/countries\",\n                    \"description\": \"Update country\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/system/countries/{countryCode}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/countries/{countryCode}\",\n                    \"description\": \"Delete country\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/countries/bulk-import\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/countries/bulk-import\",\n                    \"description\": \"Bulk import countries\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/branches\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/branches\",\n                    \"description\": \"List all branches\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/branches\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/branches\",\n                    \"description\": \"Create new branch\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/branches/{branchId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/branches/{branchId}\",\n                    \"description\": \"Get branch by ID\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/system/branches\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/branches\",\n                    \"description\": \"Update branch\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/system/branches/{branchId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/branches/{branchId}\",\n                    \"description\": \"Delete branch\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/branches/bulk-import\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/branches/bulk-import\",\n                    \"description\": \"Bulk import branches\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/locations\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/locations\",\n                    \"description\": \"List all locations\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/locations\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/locations\",\n                    \"description\": \"Create new location\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/locations/{locationId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/locations/{locationId}\",\n                    \"description\": \"Get location by ID\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/system/locations\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/locations\",\n                    \"description\": \"Update location\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/system/locations/{locationId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/locations/{locationId}\",\n                    \"description\": \"Delete location\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/locations/bulk-import\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/locations/bulk-import\",\n                    \"description\": \"Bulk import locations\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/templates\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/templates\",\n                    \"description\": \"List all notification templates\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/system/templates\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/templates\",\n                    \"description\": \"Create new template\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/system/templates/{templateId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/templates/{templateId}\",\n                    \"description\": \"Get template by ID\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/system/templates\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/templates\",\n                    \"description\": \"Update template\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/system/templates/{templateId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/system/templates/{templateId}\",\n                    \"description\": \"Delete template\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/\",\n                    \"description\": \"Interactive API documentation with examples\",\n                    \"requiresAuth\": false\n                }\n            ],\n            \"Monitoring\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/monitoring/stats\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/monitoring/stats\",\n                    \"description\": \"Real-time monitoring statistics\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Notifications\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/notifications/channels\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/notifications/channels\",\n                    \"description\": \"Active notification channels\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Jobs\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/jobs\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/jobs\",\n                    \"description\": \"Scheduled background jobs\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Authentication\": [\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/auth/login\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/auth/login\",\n                    \"description\": \"Authenticate user and get JWT tokens\",\n                    \"requiresAuth\": false\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/auth/register\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/auth/register\",\n                    \"description\": \"Register new user account\",\n                    \"requiresAuth\": false\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/auth/refresh\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/auth/refresh\",\n                    \"description\": \"Refresh expired access token\",\n                    \"requiresAuth\": false\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/auth/me\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/auth/me\",\n                    \"description\": \"Get authenticated user profile\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Other\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/users\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users\",\n                    \"description\": \"List users with filters (role, status, branch)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/users\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users\",\n                    \"description\": \"Create user (admin only, auto-approved)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/users/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}\",\n                    \"description\": \"Get user profile and details\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/users/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}\",\n                    \"description\": \"Update user profile information\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/users/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}\",\n                    \"description\": \"Soft delete user (admin only)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/users/pending\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/pending\",\n                    \"description\": \"List users awaiting admin approval\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/users/{id}/approve\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}/approve\",\n                    \"description\": \"Approve pending user registration\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/users/{id}/reject\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}/reject\",\n                    \"description\": \"Reject user registration with reason\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/users/{id}/activate\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}/activate\",\n                    \"description\": \"Activate deactivated user account\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/users/{id}/deactivate\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}/deactivate\",\n                    \"description\": \"Temporarily disable user account\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/users/{id}/password\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}/password\",\n                    \"description\": \"Change user password (self or admin)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/users/{id}/role\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/users/{id}/role\",\n                    \"description\": \"Change user role (admin only)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/bulk/import\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/bulk/import\",\n                    \"description\": \"Bulk import groups/members (JSON/XML/CSV/Excel)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/bulk/export\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/bulk/export\",\n                    \"description\": \"Bulk export all data (format=json|xml|csv|excel)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/bulk/template\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/bulk/template\",\n                    \"description\": \"Download import template (format=csv|excel)\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Services\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/services\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services\",\n                    \"description\": \"List all monitored services with status\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/services\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services\",\n                    \"description\": \"Add new service to monitor\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/services/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services/{id}\",\n                    \"description\": \"Get service configuration and current status\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/services/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services/{id}\",\n                    \"description\": \"Update service configuration\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/services/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services/{id}\",\n                    \"description\": \"Remove service from monitoring\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/services/{id}/uptime\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services/{id}/uptime\",\n                    \"description\": \"Get uptime history and statistics\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/services/{id}/ssl\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services/{id}/ssl\",\n                    \"description\": \"Get SSL certificate details and expiry\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/services/{id}/incidents\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/services/{id}/incidents\",\n                    \"description\": \"Get downtime incidents and alerts\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Dashboard\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/dashboard/summary\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/dashboard/summary\",\n                    \"description\": \"Real-time dashboard: uptime %, SSL status, active incidents\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Contact Groups\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/contact-groups\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups\",\n                    \"description\": \"List all notification contact groups\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/contact-groups\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups\",\n                    \"description\": \"Create new contact group\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/contact-groups/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{id}\",\n                    \"description\": \"Get group details and members\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/contact-groups/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{id}\",\n                    \"description\": \"Update group name/description\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/contact-groups/{id}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{id}\",\n                    \"description\": \"Delete contact group\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/contact-groups/{id}/members\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{id}/members\",\n                    \"description\": \"List all members in group\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"POST\",\n                    \"path\": \"/api/v1/contact-groups/{id}/members\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{id}/members\",\n                    \"description\": \"Add member to group (email/phone/telegram)\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/contact-groups/{groupId}/members/{memberId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{groupId}/members/{memberId}\",\n                    \"description\": \"Update member contact info\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"DELETE\",\n                    \"path\": \"/api/v1/contact-groups/{groupId}/members/{memberId}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/contact-groups/{groupId}/members/{memberId}\",\n                    \"description\": \"Remove member from group\",\n                    \"requiresAuth\": true\n                }\n            ],\n            \"Settings\": [\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/settings\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/settings\",\n                    \"description\": \"List all system settings\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"GET\",\n                    \"path\": \"/api/v1/settings/{key}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/settings/{key}\",\n                    \"description\": \"Get specific setting value\",\n                    \"requiresAuth\": true\n                },\n                {\n                    \"method\": \"PUT\",\n                    \"path\": \"/api/v1/settings/{key}\",\n                    \"fullUrl\": \"http://127.0.0.1:9876/api/v1/settings/{key}\",\n                    \"description\": \"Update setting value\",\n                    \"requiresAuth\": true\n                }\n            ]\n        },\n        \"quickStart\": {\n            \"1. Health Check\": \"http://127.0.0.1:9876/api/health\",\n            \"2. API Documentation\": \"http://127.0.0.1:9876/\",\n            \"3. Register User\": \"POST http://127.0.0.1:9876/api/v1/auth/register\",\n            \"4. Login\": \"POST http://127.0.0.1:9876/api/v1/auth/login\",\n            \"5. List Services\": \"GET http://127.0.0.1:9876/api/v1/services (with Bearer token)\"\n        },\n        \"examples\": {\n            \"Register User\": {\n                \"method\": \"POST\",\n                \"body\": {\n                    \"lastName\": \"Njenga\",\n                    \"firstName\": \"James\",\n                    \"email\": \"jamesnjenga@skyworld.ac.ke\",\n                    \"password\": \"BlahBlah@123!\"\n                },\n                \"headers\": {\n                    \"Content-Type\": \"application/json\"\n                },\n                \"url\": \"http://127.0.0.1:9876/api/v1/auth/register\"\n            },\n            \"Login\": {\n                \"method\": \"POST\",\n                \"body\": {\n                    \"identifier\": \"jamesnjenga@skyworld.ac.ke\",\n                    \"password\": \"BlahBlah@123!\"\n                },\n                \"headers\": {\n                    \"Content-Type\": \"application/json\"\n                },\n                \"url\": \"http://127.0.0.1:9876/api/v1/auth/login\"\n            }\n        },\n        \"statistics\": {\n            \"totalEndpoints\": 76,\n            \"publicEndpoints\": 6,\n            \"protectedEndpoints\": 70,\n            \"methods\": [\n                \"GET\",\n                \"POST\",\n                \"PUT\",\n                \"DELETE\"\n            ]\n        },\n        \"authentication\": \"Most endpoints require Bearer token authentication\",\n        \"contentType\": \"application/json\",\n        \"support\": \"camreshjames@gmail.com\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2025-11-28T05:16:51.553595700Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"password\": \"Fink-Hoes-73\",\r\n\"identifier\": \"admin\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "842"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:16:27 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJjbmptdGVjaG5vbG9naWVzaW5jQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzY0NTIyOTg3LCJleHAiOjE3NjQ1MjM4ODd9.9YAQEsQ7U1GX7b6kBQWJd7ffa0MFQIGOIpNucZIhwfg\",\n        \"user\": {\n            \"firstName\": \"System\",\n            \"lastName\": \"Administrator\",\n            \"lastLogin\": \"2025-11-30T10:27:31.606611Z\",\n            \"createdAt\": \"2025-11-13T07:07:06.479335Z\",\n            \"role\": \"admin\",\n            \"fullName\": \"System Senior Administrator\",\n            \"middleName\": \"Senior\",\n            \"isActive\": true,\n            \"userId\": 1,\n            \"email\": \"cnjmtechnologiesinc@gmail.com\",\n            \"username\": \"admin\"\n        },\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidHlwZSI6InJlZnJlc2giLCJpYXQiOjE3NjQ1MjI5ODcsImV4cCI6MTc2NTEyNzc4N30.UW7qd48uL_aesJssFOy4jPqgqZy2P4fhJEW7lPMN4Bg\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:16:27.796145Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "incidents",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/services",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"services"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3976"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:30:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Services retrieved\",\n    \"data\": [\n        {\n            \"serviceId\": 7,\n            \"name\": \"AWS\",\n            \"url\": \"https://aws.amazon.com\",\n            \"checkIntervalSeconds\": 60,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.247256Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T09:41:14.401367Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.247256Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 11,\n            \"name\": \"example\",\n            \"url\": \"https://example.com/\",\n            \"checkIntervalSeconds\": 300,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.254703Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T13:47:21.316010Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.254703Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 5,\n            \"name\": \"GitHub\",\n            \"url\": \"https://github.com\",\n            \"checkIntervalSeconds\": 60,\n            \"timeoutMs\": 5000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.263124Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T09:41:14.378281Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.263124Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 4,\n            \"name\": \"Google\",\n            \"url\": \"https://www.google.com\",\n            \"checkIntervalSeconds\": 60,\n            \"timeoutMs\": 5000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.271756Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T09:41:14.354766Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.271756Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 1,\n            \"name\": \"JAMES\",\n            \"url\": \"https://camreshjames.github.io/CamreshJ/\",\n            \"checkIntervalSeconds\": 300,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.278436Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-25T10:07:33.881037Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.278436Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 9,\n            \"name\": \"Jimmie\",\n            \"url\": \"https://james-mwangi-njenga.vercel.app/\",\n            \"checkIntervalSeconds\": 360,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.290673Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T12:02:38.042922Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.290673Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 12,\n            \"name\": \"kii\",\n            \"url\": \"https://www.chess.com/\",\n            \"checkIntervalSeconds\": 360,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.309113Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-29T03:17:33.136339Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.309113Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 10,\n            \"name\": \"Lorna\",\n            \"url\": \"https://njeri-lorna.github.io/Lorna-portfolio/\",\n            \"checkIntervalSeconds\": 300,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.321781Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T13:45:04.109761Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.321781Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 8,\n            \"name\": \"Microsoft\",\n            \"url\": \"https://www.microsoft.com\",\n            \"checkIntervalSeconds\": 60,\n            \"timeoutMs\": 5000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.334701Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T09:41:14.406765Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.334701Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 6,\n            \"name\": \"Stack Overflow\",\n            \"url\": \"https://stackoverflow.com\",\n            \"checkIntervalSeconds\": 120,\n            \"timeoutMs\": 5000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.343714Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-28T09:41:14.390765Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.343714Z\",\n            \"active\": true,\n            \"deleted\": false\n        },\n        {\n            \"serviceId\": 3,\n            \"name\": \"The Dojo\",\n            \"url\": \"https://tech-dojo.vercel.app/\",\n            \"checkIntervalSeconds\": 300,\n            \"timeoutMs\": 10000,\n            \"maxRetries\": 3,\n            \"retryDelayMs\": 5000,\n            \"currentStatus\": \"UP\",\n            \"lastCheckedAt\": \"2025-11-30T17:30:25.352818Z\",\n            \"customHeaders\": null,\n            \"createdAt\": \"2025-11-26T06:04:04.940259Z\",\n            \"updatedAt\": \"2025-11-30T17:30:25.352818Z\",\n            \"active\": true,\n            \"deleted\": false\n        }\n    ],\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:30:56.099799800Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/dashboard/summary",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dashboard",
+								"summary"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "285"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:36:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Dashboard summary retrieved\",\n    \"data\": {\n        \"sslWarnings\": 0,\n        \"uptimePercentage24h\": 40.41,\n        \"avgResponseTime24h\": 2451,\n        \"activeIncidents\": 0,\n        \"servicesUnknown\": 0,\n        \"totalServices\": 11,\n        \"servicesDown\": 0,\n        \"servicesUp\": 11\n    },\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:36:26.048003600Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Contact Groups",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/contact-groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"contact-groups"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "453"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:44:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"createdAt\": \"2025-11-13T07:07:06.563+00:00\",\n            \"groupId\": 1,\n            \"name\": \"DevOps Team\",\n            \"description\": \"Primary technical contacts\",\n            \"isActive\": true,\n            \"updatedAt\": \"2025-11-13T07:07:06.563+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:06.563+00:00\",\n            \"groupId\": 2,\n            \"name\": \"Management\",\n            \"description\": \"Executive alerts\",\n            \"isActive\": true,\n            \"updatedAt\": \"2025-11-13T07:07:06.563+00:00\"\n        }\n    ],\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:44:45.850850Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/settings",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"settings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2069"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:45:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"Default ping interval\",\n            \"value\": \"300\",\n            \"key\": \"monitoring.default_interval_seconds\",\n            \"updatedAt\": \"2025-11-25T12:01:42.010+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"Default retries before DOWN\",\n            \"value\": \"3\",\n            \"key\": \"monitoring.max_retries\",\n            \"updatedAt\": \"2025-11-25T12:01:42.021+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"Delay between retries\",\n            \"value\": \"5000\",\n            \"key\": \"monitoring.retry_delay_ms\",\n            \"updatedAt\": \"2025-11-25T12:01:42.157+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"HTTP timeout\",\n            \"value\": \"10000\",\n            \"key\": \"monitoring.timeout_ms\",\n            \"updatedAt\": \"2025-11-25T12:01:42.355+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"Cooldown between duplicate alerts\",\n            \"value\": \"300\",\n            \"key\": \"notifications.cooldown_period_seconds\",\n            \"updatedAt\": \"2025-11-25T12:01:42.339+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"Keep reports for N days\",\n            \"value\": \"180\",\n            \"key\": \"reports.archive_after_days\",\n            \"updatedAt\": \"2025-11-25T12:01:42.237+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"integer\",\n            \"description\": \"SSL check frequency\",\n            \"value\": \"24\",\n            \"key\": \"ssl.check_interval_hours\",\n            \"updatedAt\": \"2025-11-25T12:01:42.123+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"string\",\n            \"description\": \"Alert thresholds\",\n            \"value\": \"30,14,7,3\",\n            \"key\": \"ssl.expiry_thresholds_days\",\n            \"updatedAt\": \"2025-11-25T12:01:42.397+00:00\"\n        },\n        {\n            \"createdAt\": \"2025-11-13T07:07:02.204+00:00\",\n            \"isSensitive\": false,\n            \"dataType\": \"string\",\n            \"description\": \"Application version\",\n            \"value\": \"1.0.0\",\n            \"key\": \"system.version\",\n            \"updatedAt\": \"2025-11-25T12:01:42.368+00:00\"\n        }\n    ],\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:45:46.868274600Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "System",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/system/engines",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"system",
+								"engines"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "211"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:46:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"notification\": \"RUNNING\",\n        \"security\": \"RUNNING\",\n        \"configuration\": \"RUNNING\",\n        \"monitoring\": \"RUNNING\",\n        \"job\": \"RUNNING\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:46:50.672696Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Monitoring",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/monitoring/stats",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"monitoring",
+								"stats"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "202"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Nov 2025 17:47:53 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"stats\": \"Monitoring Stats - Active: 0, Completed: 143, Queue: 0\",\n        \"healthy\": true,\n        \"status\": \"RUNNING\"\n    },\n    \"error\": null,\n    \"timestamp\": \"2025-11-30T17:47:53.794892200Z\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
