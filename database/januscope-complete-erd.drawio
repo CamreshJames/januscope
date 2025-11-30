@@ -1,0 +1,541 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Januscope ERD" id="erd">
+    <mxGraphModel dx="2500" dy="1500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="2000">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="JANUSCOPE DATABASE - ENTITY RELATIONSHIP DIAGRAM" style="text;fontSize=24;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="800" y="20" width="800" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="LEGEND&#xa;🔑 Primary Key&#xa;🔗 Foreign Key&#xa;⭐ Unique&#xa;📊 Indexed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="80" width="180" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECTION 1: REFERENCE TABLES (Top Left) -->
+        <mxCell id="sec1" value="REFERENCE TABLES" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- genders -->
+        <mxCell id="genders" value="genders" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="250" y="120" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="genders-f" value="🔑 gender (TEXT)&#xa;description (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="genders">
+          <mxGeometry y="26" width="180" height="64" as="geometry"/>
+        </mxCell>
+        
+        <!-- roles -->
+        <mxCell id="roles" value="roles" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="460" y="120" width="180" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="roles-f" value="🔑 role_id (SERIAL)&#xa;⭐ role_name (TEXT)&#xa;description (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="roles">
+          <mxGeometry y="26" width="180" height="84" as="geometry"/>
+        </mxCell>
+        
+        <!-- countries -->
+        <mxCell id="countries" value="countries" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="670" y="120" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="countries-f" value="🔑 country_code (TEXT)&#xa;name (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="countries">
+          <mxGeometry y="26" width="180" height="64" as="geometry"/>
+        </mxCell>
+        
+        <!-- locations -->
+        <mxCell id="locations" value="locations" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="880" y="120" width="180" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="locations-f" value="🔑 location_id (SERIAL)&#xa;name (TEXT)&#xa;🔗📊 parent_id (INTEGER)&#xa;location_type (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="locations">
+          <mxGeometry y="26" width="180" height="104" as="geometry"/>
+        </mxCell>
+        
+        <!-- branches -->
+        <mxCell id="branches" value="branches" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="120" width="200" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="branches-f" value="🔑 branch_id (SERIAL)&#xa;⭐ name (TEXT)&#xa;⭐ code (TEXT)&#xa;🔗📊 country_code (TEXT)&#xa;🔗 location_id (INTEGER)&#xa;is_active (BOOLEAN)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="branches">
+          <mxGeometry y="26" width="200" height="124" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECTION 2: USER MANAGEMENT (Middle Left) -->
+        <mxCell id="sec2" value="USER MANAGEMENT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="300" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- users -->
+        <mxCell id="users" value="users" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="250" y="340" width="220" height="340" as="geometry"/>
+        </mxCell>
+        <mxCell id="users-f" value="🔑 user_id (SERIAL)&#xa;🔗📊 role_id (INTEGER)&#xa;🔗 gender (TEXT)&#xa;🔗📊 branch_id (INTEGER)&#xa;first_name (VARCHAR)&#xa;middle_name (VARCHAR)&#xa;last_name (VARCHAR)&#xa;⭐📊 username (VARCHAR)&#xa;⭐📊 email (VARCHAR)&#xa;⭐📊 phone_number (VARCHAR)&#xa;national_id (VARCHAR)&#xa;date_of_birth (DATE)&#xa;profile_image_url (TEXT)&#xa;password_hash (TEXT)&#xa;last_login (TIMESTAMP)&#xa;is_active (BOOLEAN)&#xa;is_deleted (BOOLEAN)&#xa;deleted_at (TIMESTAMP)&#xa;📊 is_approved (BOOLEAN)&#xa;🔗 approved_by (INTEGER)&#xa;approved_at (TIMESTAMP)&#xa;approval_notes (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="users">
+          <mxGeometry y="26" width="220" height="314" as="geometry"/>
+        </mxCell>
+        
+        <!-- refresh_tokens -->
+        <mxCell id="refresh_tokens" value="refresh_tokens" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="refresh_tokens-f" value="🔑 token_id (SERIAL)&#xa;🔗📊 user_id (INTEGER)&#xa;token_hash (TEXT)&#xa;📊 expires_at (TIMESTAMP)&#xa;is_revoked (BOOLEAN)&#xa;revoked_at (TIMESTAMP)&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="refresh_tokens">
+          <mxGeometry y="26" width="200" height="114" as="geometry"/>
+        </mxCell>
+        
+        <!-- user_audit_log -->
+        <mxCell id="user_audit_log" value="user_audit_log" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="500" y="500" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_audit_log-f" value="🔑 audit_id (SERIAL)&#xa;🔗📊 user_id (INTEGER)&#xa;📊 action_type (TEXT)&#xa;🔗 performed_by (INTEGER)&#xa;old_values (JSONB)&#xa;new_values (JSONB)&#xa;notes (TEXT)&#xa;ip_address (INET)&#xa;📊 created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="user_audit_log">
+          <mxGeometry y="26" width="200" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECTION 3: MONITORING CORE (Center) -->
+        <mxCell id="sec3" value="MONITORING CORE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="300" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- services -->
+        <mxCell id="services" value="services" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="750" y="340" width="240" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="services-f" value="🔑 service_id (SERIAL)&#xa;📊 name (TEXT)&#xa;📊 url (TEXT)&#xa;check_interval_seconds (INTEGER)&#xa;timeout_ms (INTEGER)&#xa;max_retries (INTEGER)&#xa;retry_delay_ms (INTEGER)&#xa;📊 current_status (TEXT)&#xa;📊 last_checked_at (TIMESTAMP)&#xa;custom_headers (JSONB)&#xa;📊 is_active (BOOLEAN)&#xa;is_deleted (BOOLEAN)&#xa;deleted_at (TIMESTAMP)&#xa;🔗 created_by (INTEGER)&#xa;🔗 updated_by (INTEGER)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="services">
+          <mxGeometry y="26" width="240" height="274" as="geometry"/>
+        </mxCell>
+        
+        <!-- uptime_checks -->
+        <mxCell id="uptime_checks" value="uptime_checks" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="340" width="220" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="uptime_checks-f" value="🔑 check_id (BIGSERIAL)&#xa;🔗📊 service_id (INTEGER)&#xa;📊 status (TEXT)&#xa;response_time_ms (INTEGER)&#xa;http_code (INTEGER)&#xa;error_message (TEXT)&#xa;📊 checked_at (TIMESTAMP)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="uptime_checks">
+          <mxGeometry y="26" width="220" height="134" as="geometry"/>
+        </mxCell>
+        
+        <!-- incidents -->
+        <mxCell id="incidents" value="incidents" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="520" width="220" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="incidents-f" value="🔑 incident_id (SERIAL)&#xa;🔗📊 service_id (INTEGER)&#xa;📊 started_at (TIMESTAMP)&#xa;recovered_at (TIMESTAMP)&#xa;duration_seconds (INTEGER)&#xa;error_message (TEXT)&#xa;📊 is_resolved (BOOLEAN)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="incidents">
+          <mxGeometry y="26" width="220" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- ssl_checks -->
+        <mxCell id="ssl_checks" value="ssl_checks" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="340" width="220" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="ssl_checks-f" value="🔑 ssl_check_id (BIGSERIAL)&#xa;🔗📊 service_id (INTEGER)&#xa;📊 domain (TEXT)&#xa;issuer (TEXT)&#xa;subject (TEXT)&#xa;valid_from (TIMESTAMP)&#xa;valid_to (TIMESTAMP)&#xa;📊 days_remaining (INTEGER)&#xa;serial_number (TEXT)&#xa;fingerprint (TEXT)&#xa;algorithm (TEXT)&#xa;key_size (INTEGER)&#xa;is_self_signed (BOOLEAN)&#xa;is_valid (BOOLEAN)&#xa;📊 last_checked_at (TIMESTAMP)&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="ssl_checks">
+          <mxGeometry y="26" width="220" height="214" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECTION 4: CONTACTS & NOTIFICATIONS (Bottom Left) -->
+        <mxCell id="sec4" value="CONTACTS & NOTIFICATIONS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="720" width="250" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- contact_groups -->
+        <mxCell id="contact_groups" value="contact_groups" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="250" y="760" width="200" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="contact_groups-f" value="🔑 group_id (SERIAL)&#xa;⭐📊 name (TEXT)&#xa;description (TEXT)&#xa;is_active (BOOLEAN)&#xa;🔗 created_by (INTEGER)&#xa;🔗 updated_by (INTEGER)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="contact_groups">
+          <mxGeometry y="26" width="200" height="124" as="geometry"/>
+        </mxCell>
+        
+        <!-- contact_members -->
+        <mxCell id="contact_members" value="contact_members" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="480" y="760" width="200" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="contact_members-f" value="🔑 member_id (SERIAL)&#xa;🔗📊 group_id (INTEGER)&#xa;name (TEXT)&#xa;📊 email (VARCHAR)&#xa;telegram_handle (VARCHAR)&#xa;phone_number (VARCHAR)&#xa;is_active (BOOLEAN)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="contact_members">
+          <mxGeometry y="26" width="200" height="134" as="geometry"/>
+        </mxCell>
+        
+        <!-- service_contact_groups (junction) -->
+        <mxCell id="service_contact_groups" value="service_contact_groups" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="710" y="760" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="service_contact_groups-f" value="🔗📊 service_id (INTEGER)&#xa;🔗📊 group_id (INTEGER)&#xa;created_at&#xa;PK: (service_id, group_id)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="service_contact_groups">
+          <mxGeometry y="26" width="220" height="64" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_channels -->
+        <mxCell id="notification_channels" value="notification_channels" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="250" y="940" width="200" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="notification_channels-f" value="🔑 channel (TEXT)&#xa;description (TEXT)&#xa;is_enabled (BOOLEAN)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="notification_channels">
+          <mxGeometry y="26" width="200" height="84" as="geometry"/>
+        </mxCell>
+        
+        <!-- event_types -->
+        <mxCell id="event_types" value="event_types" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="480" y="940" width="200" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="event_types-f" value="🔑 event_type (TEXT)&#xa;description (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="event_types">
+          <mxGeometry y="26" width="200" height="84" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_templates -->
+        <mxCell id="notification_templates" value="notification_templates" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="710" y="880" width="220" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="notification_templates-f" value="🔑 template_id (SERIAL)&#xa;name (TEXT)&#xa;🔗📊 event_type (TEXT)&#xa;🔗📊 channel (TEXT)&#xa;subject_template (TEXT)&#xa;body_template (TEXT)&#xa;is_active (BOOLEAN)&#xa;🔗 created_by (INTEGER)&#xa;🔗 updated_by (INTEGER)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="notification_templates">
+          <mxGeometry y="26" width="220" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- notifications -->
+        <mxCell id="notifications" value="notifications" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="960" y="760" width="220" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="notifications-f" value="🔑 notification_id (BIGSERIAL)&#xa;🔗📊 service_id (INTEGER)&#xa;🔗📊 incident_id (INTEGER)&#xa;🔗 ssl_check_id (BIGINT)&#xa;🔗📊 event_type (TEXT)&#xa;🔗 channel (TEXT)&#xa;recipient (TEXT)&#xa;subject (TEXT)&#xa;message_body (TEXT)&#xa;📊 delivery_status (TEXT)&#xa;📊 sent_at (TIMESTAMP)&#xa;delivered_at (TIMESTAMP)&#xa;error_message (TEXT)&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="notifications">
+          <mxGeometry y="26" width="220" height="194" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_cooldowns -->
+        <mxCell id="notification_cooldowns" value="notification_cooldowns" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="960" y="1000" width="220" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="notification_cooldowns-f" value="🔑 cooldown_id (SERIAL)&#xa;🔗📊 service_id (INTEGER)&#xa;🔗 group_id (INTEGER)&#xa;🔗 event_type (TEXT)&#xa;last_notified_at (TIMESTAMP)&#xa;📊 cooldown_until (TIMESTAMP)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="notification_cooldowns">
+          <mxGeometry y="26" width="220" height="124" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECTION 5: REPORTING & STATISTICS (Right Side) -->
+        <mxCell id="sec5" value="REPORTING & STATISTICS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="300" width="250" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- service_statistics -->
+        <mxCell id="service_statistics" value="service_statistics" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="340" width="240" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="service_statistics-f" value="🔑 stat_id (SERIAL)&#xa;🔗📊 service_id (INTEGER)&#xa;📊 date (DATE)&#xa;total_checks (INTEGER)&#xa;successful_checks (INTEGER)&#xa;failed_checks (INTEGER)&#xa;uptime_percentage (NUMERIC)&#xa;avg_response_time_ms (INTEGER)&#xa;min_response_time_ms (INTEGER)&#xa;max_response_time_ms (INTEGER)&#xa;p95_response_time_ms (INTEGER)&#xa;total_downtime_seconds (INTEGER)&#xa;incident_count (INTEGER)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="service_statistics">
+          <mxGeometry y="26" width="240" height="214" as="geometry"/>
+        </mxCell>
+        
+        <!-- report_types -->
+        <mxCell id="report_types" value="report_types" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="600" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="report_types-f" value="🔑 report_type (TEXT)&#xa;description (TEXT)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="report_types">
+          <mxGeometry y="26" width="200" height="74" as="geometry"/>
+        </mxCell>
+        
+        <!-- reports -->
+        <mxCell id="reports" value="reports" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1780" y="340" width="220" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="reports-f" value="🔑 report_id (SERIAL)&#xa;name (TEXT)&#xa;🔗📊 report_type (TEXT)&#xa;from_date (DATE)&#xa;to_date (DATE)&#xa;format (TEXT)&#xa;file_url (TEXT)&#xa;file_size_bytes (BIGINT)&#xa;🔗 generated_by (INTEGER)&#xa;📊 generated_at (TIMESTAMP)&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="reports">
+          <mxGeometry y="26" width="220" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- scheduled_reports -->
+        <mxCell id="scheduled_reports" value="scheduled_reports" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1780" y="540" width="220" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="scheduled_reports-f" value="🔑 schedule_id (SERIAL)&#xa;name (TEXT)&#xa;🔗 report_type (TEXT)&#xa;cron_expression (TEXT)&#xa;format (TEXT)&#xa;include_charts (BOOLEAN)&#xa;is_active (BOOLEAN)&#xa;last_run_at (TIMESTAMP)&#xa;📊 next_run_at (TIMESTAMP)&#xa;🔗 created_by (INTEGER)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="scheduled_reports">
+          <mxGeometry y="26" width="220" height="174" as="geometry"/>
+        </mxCell>
+        
+        <!-- report_recipients (junction) -->
+        <mxCell id="report_recipients" value="report_recipients" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1780" y="760" width="220" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="report_recipients-f" value="🔗📊 schedule_id (INTEGER)&#xa;🔗📊 group_id (INTEGER)&#xa;created_at&#xa;PK: (schedule_id, group_id)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="report_recipients">
+          <mxGeometry y="26" width="220" height="64" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECTION 6: SYSTEM & AUDIT (Bottom Right) -->
+        <mxCell id="sec6" value="SYSTEM & AUDIT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="720" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- settings -->
+        <mxCell id="settings" value="settings" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="760" width="200" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="settings-f" value="🔑 key (TEXT)&#xa;value (TEXT)&#xa;description (TEXT)&#xa;data_type (TEXT)&#xa;is_sensitive (BOOLEAN)&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="settings">
+          <mxGeometry y="26" width="200" height="104" as="geometry"/>
+        </mxCell>
+        
+        <!-- audit_logs -->
+        <mxCell id="audit_logs" value="audit_logs" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="910" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="audit_logs-f" value="🔑 audit_id (BIGSERIAL)&#xa;🔗📊 user_id (INTEGER)&#xa;📊 action (TEXT)&#xa;📊 table_name (TEXT)&#xa;row_id (INTEGER)&#xa;old_data (JSONB)&#xa;new_data (JSONB)&#xa;ip_address (TEXT)&#xa;user_agent (TEXT)&#xa;📊 created_at (TIMESTAMP)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="audit_logs">
+          <mxGeometry y="26" width="200" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- system_logs -->
+        <mxCell id="system_logs" value="system_logs" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="910" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="system_logs-f" value="🔑 log_id (BIGSERIAL)&#xa;📊 level (TEXT)&#xa;message (TEXT)&#xa;trace (TEXT)&#xa;📊 source (TEXT)&#xa;metadata (JSONB)&#xa;📊 created_at (TIMESTAMP)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="system_logs">
+          <mxGeometry y="26" width="200" height="114" as="geometry"/>
+        </mxCell>
+        
+        <!-- job_queue -->
+        <mxCell id="job_queue" value="job_queue" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="760" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="job_queue-f" value="🔑 job_id (BIGSERIAL)&#xa;📊 job_type (TEXT)&#xa;payload (JSONB)&#xa;📊 priority (INTEGER)&#xa;📊 status (TEXT)&#xa;attempts (INTEGER)&#xa;max_attempts (INTEGER)&#xa;📊 scheduled_at (TIMESTAMP)&#xa;started_at (TIMESTAMP)&#xa;completed_at (TIMESTAMP)&#xa;error_message (TEXT)&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=9;" vertex="1" parent="job_queue">
+          <mxGeometry y="26" width="200" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- RELATIONSHIPS -->
+        
+        <!-- users -> roles -->
+        <mxCell id="rel1" style="endArrow=classic;html=1;exitX=1;exitY=0.1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="users" target="roles-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel1-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel1">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- users -> genders -->
+        <mxCell id="rel2" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="users" target="genders-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- users -> branches -->
+        <mxCell id="rel3" style="endArrow=classic;html=1;exitX=1;exitY=0.15;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="users" target="branches-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- users -> users (approved_by self-reference) -->
+        <mxCell id="rel4" style="endArrow=classic;html=1;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.6;entryDx=0;entryDy=0;" edge="1" parent="1" source="users-f" target="users-f">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="550"/>
+              <mxPoint x="220" y="530"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4-label" value="approved_by" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel4">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint x="-30" as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- branches -> countries -->
+        <mxCell id="rel5" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="branches" target="countries">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- branches -> locations -->
+        <mxCell id="rel6" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="branches-f" target="locations">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- locations -> locations (parent_id self-reference) -->
+        <mxCell id="rel7" style="endArrow=classic;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="locations-f" target="locations-f">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="160"/>
+              <mxPoint x="1090" y="180"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel7-label" value="parent_id" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;" vertex="1" connectable="0" parent="rel7">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint x="30" as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- refresh_tokens -> users -->
+        <mxCell id="rel8" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="refresh_tokens-f" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel8-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel8">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- user_audit_log -> users -->
+        <mxCell id="rel9" style="endArrow=classic;html=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;" edge="1" parent="1" source="user_audit_log-f" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- services -> users (created_by) -->
+        <mxCell id="rel10" style="endArrow=classic;html=1;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="services-f" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- uptime_checks -> services -->
+        <mxCell id="rel11" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="uptime_checks-f" target="services-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel11-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel11">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- incidents -> services -->
+        <mxCell id="rel12" style="endArrow=classic;html=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.6;entryDx=0;entryDy=0;" edge="1" parent="1" source="incidents-f" target="services-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel12-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel12">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- ssl_checks -> services -->
+        <mxCell id="rel13" style="endArrow=classic;html=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="ssl_checks-f" target="services-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel13-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel13">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- contact_groups -> users (created_by) -->
+        <mxCell id="rel14" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.9;entryDx=0;entryDy=0;" edge="1" parent="1" source="contact_groups" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- contact_members -> contact_groups -->
+        <mxCell id="rel15" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="contact_members-f" target="contact_groups-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel15-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel15">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- service_contact_groups -> services -->
+        <mxCell id="rel16" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="service_contact_groups" target="services">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel16-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel16">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- service_contact_groups -> contact_groups -->
+        <mxCell id="rel17" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="service_contact_groups-f" target="contact_groups-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel17-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel17">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- notification_templates -> event_types -->
+        <mxCell id="rel18" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="notification_templates-f" target="event_types-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_templates -> notification_channels -->
+        <mxCell id="rel19" style="endArrow=classic;html=1;exitX=0;exitY=0.4;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="notification_templates-f" target="notification_channels-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_templates -> users (created_by) -->
+        <mxCell id="rel20" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="notification_templates" target="users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notifications -> services -->
+        <mxCell id="rel21" style="endArrow=classic;html=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="notifications-f" target="services-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notifications -> incidents -->
+        <mxCell id="rel22" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="notifications" target="incidents-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notifications -> ssl_checks -->
+        <mxCell id="rel23" style="endArrow=classic;html=1;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="notifications-f" target="ssl_checks-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notifications -> event_types -->
+        <mxCell id="rel24" style="endArrow=classic;html=1;exitX=0;exitY=0.4;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="notifications-f" target="event_types">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_cooldowns -> services -->
+        <mxCell id="rel25" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="notification_cooldowns" target="services">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_cooldowns -> contact_groups -->
+        <mxCell id="rel26" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="notification_cooldowns-f" target="contact_groups-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- notification_cooldowns -> event_types -->
+        <mxCell id="rel27" style="endArrow=classic;html=1;exitX=0;exitY=0.4;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="notification_cooldowns-f" target="event_types">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- service_statistics -> services -->
+        <mxCell id="rel28" style="endArrow=classic;html=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="service_statistics-f" target="services-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rel28-label" value="N:1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" vertex="1" connectable="0" parent="rel28">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+        
+        <!-- reports -> report_types -->
+        <mxCell id="rel29" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="reports-f" target="report_types-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- reports -> users (generated_by) -->
+        <mxCell id="rel30" style="endArrow=classic;html=1;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="reports-f" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- scheduled_reports -> report_types -->
+        <mxCell id="rel31" style="endArrow=classic;html=1;exitX=0;exitY=0.2;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="scheduled_reports-f" target="report_types-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- scheduled_reports -> users (created_by) -->
+        <mxCell id="rel32" style="endArrow=classic;html=1;exitX=0;exitY=0.8;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="scheduled_reports-f" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- report_recipients -> scheduled_reports -->
+        <mxCell id="rel33" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="report_recipients" target="scheduled_reports">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- report_recipients -> contact_groups -->
+        <mxCell id="rel34" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="report_recipients-f" target="contact_groups">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- audit_logs -> users -->
+        <mxCell id="rel35" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.95;entryDx=0;entryDy=0;" edge="1" parent="1" source="audit_logs-f" target="users-f">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Additional Notes Section -->
+        <mxCell id="notes-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9e6;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1200" width="600" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-title" value="DATABASE NOTES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1210" width="560" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-content" value="• Total Tables: 26 (including junction tables)&#xa;• Key Features:&#xa;  - Soft deletes on users, services, contact_groups&#xa;  - Audit trails for user management actions&#xa;  - Self-referencing: users (approved_by), locations (parent_id)&#xa;  - Junction tables: service_contact_groups, report_recipients&#xa;  - Pre-aggregated statistics for performance&#xa;  - Job queue for background processing&#xa;  - Notification cooldowns to prevent spam&#xa;  - Comprehensive indexing on foreign keys and query columns&#xa;• Views: 5 materialized views for dashboard and reporting&#xa;• Triggers: Auto-update timestamps, incident duration calculation&#xa;• Security: Argon2id password hashing, RBAC with roles table" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1240" width="560" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Table Count Summary -->
+        <mxCell id="summary-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1200" width="350" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="summary-title" value="TABLE CATEGORIES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="1210" width="310" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="summary-content" value="REFERENCE TABLES (5):&#xa;• genders, roles, countries, locations, branches&#xa;&#xa;USER MANAGEMENT (3):&#xa;• users, refresh_tokens, user_audit_log&#xa;&#xa;MONITORING CORE (4):&#xa;• services, uptime_checks, incidents, ssl_checks&#xa;&#xa;CONTACTS & NOTIFICATIONS (8):&#xa;• contact_groups, contact_members&#xa;• service_contact_groups (junction)&#xa;• notification_channels, event_types&#xa;• notification_templates, notifications&#xa;• notification_cooldowns&#xa;&#xa;REPORTING (5):&#xa;• service_statistics, report_types, reports&#xa;• scheduled_reports, report_recipients (junction)&#xa;&#xa;SYSTEM & AUDIT (4):&#xa;• settings, audit_logs, system_logs, job_queue" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="670" y="1240" width="310" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Cardinality Legend -->
+        <mxCell id="card-legend-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="1200" width="250" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="card-legend-title" value="RELATIONSHIP TYPES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="1210" width="210" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="card-legend-content" value="N:1 (Many-to-One):&#xa;• Most foreign key relationships&#xa;• Example: Many users → One role&#xa;&#xa;1:N (One-to-Many):&#xa;• Inverse of N:1&#xa;• Example: One service → Many checks&#xa;&#xa;N:M (Many-to-Many):&#xa;• Via junction tables&#xa;• service_contact_groups&#xa;• report_recipients&#xa;&#xa;Self-Referencing:&#xa;• users.approved_by → users.user_id&#xa;• locations.parent_id → locations.location_id" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="1240" width="210" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Database Info Footer -->
+        <mxCell id="footer" value="Januscope v1.0.0 | PostgreSQL 14+ | Sky World Limited | Generated: 2025-11-30" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1420" width="800" height="30" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
